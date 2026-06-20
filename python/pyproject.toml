@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qvac"
+version = "0.1.0"
+description = "Local, private AI client for the Tether QVAC SDK — chat, RAG, NMT, OCR, all on-device."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "hack_1 (Tether QVAC Hackathon)" }]
+keywords = ["qvac", "tether", "local-ai", "private-ai", "rag", "ocr", "nmt", "edge-ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.26",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+engine = ["openai>=1.40"]   # only needed for the real local QVAC engine (OpenAI-compat API)
+chart = ["matplotlib>=3.7"] # only needed for example 04/05 chart export
+dev = ["pytest>=8", "openai>=1.40"]
+
+[project.urls]
+Homepage = "https://qvac.tether.io"
+Documentation = "https://docs.qvac.tether.io/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Make `import qvac` resolve to python/src without installing the package.
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

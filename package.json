@@ -1,0 +1,54 @@
+{
+  "name": "solace",
+  "version": "1.0.0",
+  "description": "Solace — a sovereign, local-first AI agent built on the Tether QVAC SDK. Runs entirely on-device (no cloud, no API keys) and can upgrade its brain over P2P via QVAC delegated inference.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "hack_1 (built for the Tether QVAC Hackathon)",
+  "keywords": [
+    "qvac",
+    "tether",
+    "local-ai",
+    "private-ai",
+    "p2p",
+    "agent",
+    "llm",
+    "rag",
+    "offline",
+    "edge-ai"
+  ],
+  "engines": {
+    "node": ">=22.17"
+  },
+  "scripts": {
+    "start": "tsx src/server.ts --mock --seed",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "cli": "tsx src/cli.ts",
+    "agent": "tsx src/cli.ts chat",
+    "server": "tsx src/server.ts",
+    "provider": "tsx src/cli.ts provider",
+    "test": "vitest run",
+    "test:ts": "vitest run",
+    "test:py": "cd python && .venv/bin/python -m pytest tests/",
+    "test:all": "vitest run && cd python && .venv/bin/python -m pytest tests/",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "demo": "bash scripts/demo.sh",
+    "demo:mock": "tsx src/cli.ts chat --mock --seed",
+    "demo:web": "tsx src/server.ts --mock --seed",
+    "demo:provider": "tsx src/cli.ts provider --mock"
+  },
+  "dependencies": {
+    "zod": "^3.25.0"
+  },
+  "optionalDependencies": {
+    "@qvac/sdk": "^0.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

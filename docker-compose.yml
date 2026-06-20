@@ -1,0 +1,29 @@
+# =============================================================================
+#  Solace — Docker Compose (Tether QVAC Hackathon)
+# -----------------------------------------------------------------------------
+#  `docker compose up`  → zero-cloud dashboard at http://localhost:5274
+#
+#  The container runs the OFFLINE deterministic engine by default, so it needs
+#  no model downloads and no network — perfect for reproducible judge runs.
+# =============================================================================
+services:
+  solace:
+    build: .
+    image: solace:latest
+    container_name: solace
+    ports:
+      - "5274:5274"
+    environment:
+      - NODE_ENV=production
+      - SOLACE_MODE=mock
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5274/api/telemetry').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+# NOTE: the full feature walkthrough (scripts/demo.sh) is designed to run on the
+# host where tsx + the Python venv are available:  `npm run demo`. This compose
+# file focuses on the reproducible, zero-dependency dashboard for judge runs.

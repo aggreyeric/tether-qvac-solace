@@ -1,7 +1,28 @@
+# --- Node / TypeScript ---
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+
+# --- QVAC runtime caches ---
+qvac-cache/
+.qvac/
+
+# --- Python ---
+python/.venv/
+python/build/
+python/dist/
+**/__pycache__/
+*.egg-info/
+.eggs/
+
+# --- example/chart outputs (regenerated on demand) ---
+python/results/
+python/data/*.png
+
+# --- env / OS / logs ---
 .env
 .env.*
-node_modules/
-__pycache__/
-*.pyc
-.venv/
-data_cache/
+!.env.example
+*.log
+.DS_Store
