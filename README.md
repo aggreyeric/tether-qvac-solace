@@ -1,3 +1,5 @@
+![QVAC SDK](https://img.shields.io/badge/QVAC-SDK-blue) ![Local AI](https://img.shields.io/badge/AI-local--first-brightgreen) ![P2P](https://img.shields.io/badge/network-P2P-orange) ![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6) ![Python](https://img.shields.io/badge/language-Python-3776AB) ![Tests 50](https://img.shields.io/badge/tests-50%20passed-success) ![License](https://img.shields.io/badge/license-Apache--2.0-green) ![Docker](https://img.shields.io/badge/Docker-ready-2496ED)
+
 # 🔒 Solace — Sovereign, Local-First AI on the Tether QVAC SDK
 
 > **Your AI. Your device. Zero cloud calls.**
@@ -216,6 +218,18 @@ downloads, no network** — which makes for a perfectly reproducible judge run.
 | **P2P / decentralized** | `solace provider` + router delegate heavy jobs to a peer's on-device model |
 | **Single unified API** | One `QvacClient` seam spans LLM, embeddings/RAG, NMT, OCR, P2P provider |
 | **Edge / mobile-ready** | Tiny default brain (Llama 3.2 1B) + deterministic offline engine for any device |
+
+---
+
+## 🖥️ Hardware & Reproducibility
+
+Development and demo run on **Apple M1 Max (10 cores, 64 GB RAM, macOS arm64)**.
+See [`HARDWARE.md`](HARDWARE.md) for full specs, track compatibility, and performance benchmarks.
+
+All demos, tests, and benchmarks use the **offline deterministic engine** by default —
+zero network, zero model downloads, identical results on any machine.
+
+**Artifacts:** See [`logs/`](logs/) for exported demo runs.
 
 ---
 
