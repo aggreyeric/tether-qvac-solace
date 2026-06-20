@@ -187,15 +187,9 @@ downloads, no network** — which makes for a perfectly reproducible judge run.
 
 ## 📸 Screenshots
 
-> Add captured screenshots here before submission.
-
 | The zero-cloud dashboard | The CLI agent + routing |
 |---|---|
-| `![dashboard](docs/dashboard.png)` | `![cli](docs/cli.png)` |
-
-| Private RAG (Python) | Privacy telemetry report |
-|---|---|
-| `![rag](docs/rag.png)` | `![telemetry](docs/telemetry.png)` |
+| ![dashboard](docs/dashboard-judge.png) | ![dashboard](docs/dashboard.png) |
 
 ---
 
