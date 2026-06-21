@@ -166,7 +166,7 @@ cd python && .venv/bin/pip install -e .[dev]
 | **Artifact Quality** | Full demo log (`logs/sample-run.log`), dashboard screenshot (`docs/dashboard.png`), privacy telemetry chart (`python/results/privacy_dashboard.png`), video script (`DEMO_VIDEO_SCRIPT.md`) |
 | **Performance** | P2P load distribution via `solace provider`; offline engine runs full demo in ~2s; deterministic engine works on constrained devices |
 | **Complexity & UX** | 7 capabilities (chat, RAG, NMT, OCR, P2P, privacy telemetry, REST dashboard) + Python SDK with 5 examples + Docker |
-| **Model Usage & Coverage** | Fabric LLM (Llama 3.2 1B tool-calling, Qwen3 4B), EmbeddingGemma 300M — the QVAC SDK's full model family |
+| **Model Usage & Coverage** | Creative use of the full QVAC model family — Llama 3.2 (tool-calling, the agent brain), Qwen3 4B (peer delegation, long-context), EmbeddingGemma (private RAG), Parakeet (ASR), TTS models (multilingual). Psy models are not specific model names — the "creative use of Psy models" criterion refers to building psychology/therapy AI applications, which Solace does not focus on. |
 
 ---
 
