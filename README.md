@@ -253,6 +253,10 @@ zero network, zero model downloads, identical results on any machine.
 
 Apache-2.0 — same as the QVAC SDK. See `LICENSE`.
 
+## 🤖 AI Assistants
+
+→ See [CLAUDE.md](./CLAUDE.md) for AI coding assistant context.
+
 ---
 
 _Solace — local-first AI that never phones home._
