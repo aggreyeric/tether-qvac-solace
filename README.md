@@ -21,6 +21,20 @@ open-source SDK for building **local, private, peer-to-peer** AI applications.
 
 ---
 
+## 🎬 Demo Video
+
+> **[Eric: add the final YouTube/Drive link here before submitting]**
+
+A 2–3 minute walkthrough of Solace running fully on-device: the zero-cloud
+dashboard, the routed CLI agent, the P2P brain-upgrade delegation, and the
+privacy telemetry pinned at `🔒 0 cloud calls` end-to-end.
+
+- 📹 **Video URL:** _placeholder — recording pending_
+- 📝 **Script:** [`DEMO_VIDEO_SCRIPT.md`](DEMO_VIDEO_SCRIPT.md)
+- ⏱️ **Target length:** 2–3 min (local dashboard + CLI + `--real` on-device)
+
+---
+
 ## ✨ What is Solace?
 
 Most "AI assistants" mean: *send every prompt, every document, every secret to a
@@ -189,7 +203,7 @@ downloads, no network** — which makes for a perfectly reproducible judge run.
 
 | The zero-cloud dashboard | The CLI agent + routing |
 |---|---|
-| ![dashboard](docs/dashboard-judge.png) | ![dashboard](docs/dashboard.png) |
+| ![Zero-cloud dashboard — live telemetry](docs/dashboard-judge.png) | ![Dashboard with P2P routing active](docs/dashboard.png) |
 
 ---
 
