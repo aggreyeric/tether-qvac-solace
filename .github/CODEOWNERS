@@ -1,0 +1,5 @@
+# CODEOWNERS
+# These users will be automatically requested for review on pull requests
+# that touch the matching paths. `*` matches everything in the repository.
+
+* @aggreyeric
