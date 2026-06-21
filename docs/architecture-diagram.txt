@@ -1,0 +1,88 @@
+﻿
+  ╔════════════════════════════════════════════════════════════════════════════════════════╗
+  ║                    SOLACE  —  Sovereign, Local-First AI on QVAC                        ║
+  ║            Your AI. Your device. Zero cloud calls.  (cloudCalls === 0)                 ║
+  ║            Stack:  QVAC SDK  ·  TypeScript/Node  ·  Python  ·  Holepunch P2P           ║
+  ╚════════════════════════════════════════════════════════════════════════════════════════╝
+
+  ┌────────────────┐
+  │   👤  USER      │   types a question / task at the terminal
+  └───────┬────────┘
+          │  $ solace chat --prompt "Summarize this report"
+          ▼
+  ╔═══════════════════════════════════════════════════════════════════════════════════════╗
+  ║                          YOUR DEVICE  (Solace)                                        ║
+  ║                                                                                       ║
+  ║   ┌───────────────────────────────────────────────────────────────────────────────┐   ║
+  ║   │                       CLI AGENT   (src/cli.ts · src/agent.ts)                  │   ║
+  ║   │                                                                               │   ║
+  ║   │   ┌─────────────────┐     ┌─────────────┐      ┌──────────────────────────┐   │   ║
+  ║   │   │  SolaceAgent    │ ──► │   ROUTER    │ ──►  │  decide: 💻 local        │   │   ║
+  ║   │   │  tool-using     │     │  per-task   │      │  vs  🌐 peer delegate    │   │   ║
+  ║   │   │  plan loop      │     │   brain     │      └──────────────────────────┘   │   ║
+  ║   │   └────────┬────────┘     └─────────────┘                                   │   ║
+  ║   │            │                                                                │   ║
+  ║   │            ▼   on-device tools                                              │   ║
+  ║   │   ┌──────────────────────────────────────────────────────────────────────┐   │   ║
+  ║   │   │  🧮 calculator   ⏰ local_time   📚 private RAG (embed+retrieve)      │   │   ║
+  ║   │   │  🌐 translate (NMT)   👁 OCR                                         │   │   ║
+  ║   │   └──────────────────────────────────────────────────────────────────────┘   │   ║
+  ║   └────────────────────────────┬──────────────────────────────────────────────────┘   ║
+  ║                                │                                                       ║
+  ║                                ▼                                                       ║
+  ║   ┌───────────────────────────────────────────────────────────────────────────────┐   ║
+  ║   │                  QvacClient SEAM   (src/types.ts)        — pluggable           │   ║
+  ║   │                                                                               │   ║
+  ║   │   ┌─────────────────────────┐        ┌────────────────────────────────────┐   │   ║
+  ║   │   │  MockQvacClient         │        │  RealQvacClient                    │   │   ║
+  ║   │   │  --mock  (default)      │        │  --real                            │   │   ║
+  ║   │   │  offline deterministic  │        │  dynamically loads @qvac/sdk       │   │   ║
+  ║   │   │  instant demo, CI-safe  │        │  genuine on-device inference       │   │   ║
+  ║   │   └─────────────────────────┘        └────────────────┬───────────────────┘   │   ║
+  ║   └───────────────────────────────────────────────────────┼───────────────────────┘   ║
+  ║                                                           │                           ║
+  ║                                                           ▼                           ║
+  ║   ┌───────────────────────────────────────────────────────────────────────────────┐   ║
+  ║   │              QVAC MODELS   (src/models.ts · on-device)                         │   ║
+  ║   │                                                                               │   ║
+  ║   │   ┌──────────────┐   ┌──────────────┐   ┌──────────────────────────────┐      │   ║
+  ║   │   │  Llama 3.2   │   │  Qwen3 4B    │   │  EmbeddingGemma              │      │   ║
+  ║   │   │  1B default  │   │  bigger brain│   │  vector embed / RAG index     │      │   ║
+  ║   │   │  (~770 MB)   │   │  (peer path) │   │  (private vault retrieval)    │      │   ║
+  ║   │   └──────────────┘   └──────────────┘   └──────────────────────────────┘      │   ║
+  ║   │                                                                               │   ║
+  ║   │   engine: QVAC Fabric LLM · embeddings · NMT · OCR  (all on-device)           │   ║
+  ║   └───────────────────────────────────────────────────────────────────────────────┘   ║
+  ║                                                                                       ║
+  ║   ┌───────────────────────────────────────────────────────────────────────────────┐   ║
+  ║   │   TELEMETRY   (src/telemetry.ts)  ── zero-cloud audit trail                   │   ║
+  ║   │      cloudCalls === 0  ·  0 API keys  ·  0 bytes off-device                   │   ║
+  ║   └────────────────────────────────────┬──────────────────────────────────────────┘   ║
+  ║                                        ▼                                              ║
+  ║   ┌───────────────────────────────────────────────────────────────────────────────┐   ║
+  ║   │   PRIVACY DASHBOARD   (src/server.ts · node:http · zero-dependency)            │   ║
+  ║   │                                                                               │   ║
+  ║   │      🔒  0  CLOUD CALLS                  http://localhost:5274                  │   ║
+  ║   │      GET  /api/telemetry   GET  /api/models   POST  /api/ask                    │   ║
+  ║   └───────────────────────────────────────────────────────────────────────────────┘   ║
+  ╚═══════════════════════════════════════════════════════════════════════════════════════╝
+                                            │  delegate heavy job (QVAC Holepunch P2P)
+                                            ▼
+                  ┌────────────────── peer device (QVAC P2P) ──────────────────┐
+                  │                                                             │
+                  │   🌐  bigger on-device model · long context (TurboQuant)    │
+                  │       runs the job locally on the peer → returns result     │
+                  │                                                             │
+                  │   still 0 cloud  —  just another device, no servers         │
+                  └─────────────────────────────────────────────────────────────┘
+
+  ── PILLARS DEMONSTRATED ────────────────────────────────────────────────────────────────
+    LOCAL / PRIVATE     100% on-device · telemetry proves 0 cloud / 0 keys / 0 bytes off
+    P2P / DECENTRALIZED solace provider + router delegate to a peer's on-device model
+    UNIFIED API         one QvacClient seam spans LLM · embeddings/RAG · NMT · OCR · P2P
+    EDGE / MOBILE-READY tiny default brain (Llama 3.2 1B) + deterministic offline engine
+
+  ── TWO EQUAL RUNTIME PATHS ─────────────────────────────────────────────────────────────
+    --mock   MockQvacClient   offline deterministic · instant · CI-safe · zero downloads
+    --real   RealQvacClient   @qvac/sdk · genuine on-device inference · first run ~770 MB
+    (agent loop, router, telemetry, tools, dashboard are IDENTICAL across both paths)
